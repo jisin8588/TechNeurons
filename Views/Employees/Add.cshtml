@@ -1,0 +1,61 @@
+﻿@model ASPNETMVCCRUD.Models.AddEmployeeViewModel
+
+@{
+}
+
+<h1> Add Employee</h1>
+
+<form method="post" action="Add" class="mt-5" onsubmit=" validateForm()">
+    <div class="mb-3">
+        <label for="Name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name" required>
+        <div class="invalid-feedback">Please enter your name.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Email" class="form-label">Email Address</label>
+        <input type="email" class="form-control" id="Email" name="Email" required>
+        <div class="invalid-feedback">Please enter a valid email address.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Salary" class="form-label">Salary</label>
+        <input type="number" class="form-control" id="Salary" name="Salary" required>
+        <div class="invalid-feedback">Please enter your salary.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="DateOfBirth" class="form-label">Date Of Birth</label>
+        <input type="date" class="form-control" id="DateOfBirth" name="DateOfBirth" required>
+        <div class="invalid-feedback">Please enter your date of birth.</div>
+    </div>
+
+    <div class="mb-3">
+        <label for="Department" class="form-label">Department</label>
+        <input type="text" class="form-control" id="Department" name="Department" required>
+        <div class="invalid-feedback">Please enter your department.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<script>
+    function validateForm() {
+        var isValid = true;
+
+     
+        var inputs = document.getElementsByTagName('input');
+        for (var i = 0; i < inputs.length; i++) {
+            if (inputs[i].checkValidity() === false) {
+                inputs[i].classList.add('is-invalid');
+                isValid = false;
+            } else {
+                inputs[i].classList.remove('is-invalid');
+                inputs[i].classList.add('is-valid');
+            }
+        }
+
+        return isValid;
+    }
+</script>
+
